@@ -26,7 +26,8 @@ __CTX_VARS_NAME__ = "context_variables"
 class Swarm:
     def __init__(self, client=None):
         if not client:
-            client = OpenAI()
+            client = OpenAI(api_key="dummy_key")
+            client.base_url = "http://localhost:11434/v1"
         self.client = client
 
     def get_chat_completion(
